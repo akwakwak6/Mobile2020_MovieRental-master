@@ -1,0 +1,11 @@
+Un client doit pouvoir :
+
+o S'enregistrer
+o S'authentifier
+o Une fois au authentifié (gestion par jwt token)
+x Récupérer les initiales des noms des acteurs
+x Récupérer la liste des acteurs (complet et par initiale)
+x Récupérer la liste des catégories
+x Visualiser la liste de film (tous, par catégorie, par acteur, par titre, par langue, par mot-clé)
+x Visualiser un film (basé sur son id)
+x Encoder une location (Panier)
