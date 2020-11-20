@@ -13,7 +13,7 @@ namespace DAL.service {
 
         private Movie Convert(SqlDataReader reader) {
             Movie m = new Movie();
-            ///TO DO
+            m.Id = (int)reader["Id"];
 
             return m;
         }
