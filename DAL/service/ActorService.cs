@@ -24,6 +24,12 @@ namespace DAL.service {
             _connection = connection;
         }
 
+        public IEnumerable<Actor> getActorsInMovies(int moviesId) {
+            Command cmd = new Command("select * from Actor AS A JOIN FilmActor AS FA ON A.ActorId = FA.ActorId WHERE FA.FilmId = @Id");
+            cmd.AddParameter("Id", moviesId);
+            return _connection.ExecuteReader(cmd, Convert);
+        }
+
         public Actor Get(int key) {
             Command cmd = new Command("SELECT * FROM Actor WHERE ActorId = @id");
             cmd.AddParameter("Id", key);

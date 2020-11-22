@@ -8,4 +8,4 @@ o Récupérer la liste des acteurs (complet et par initiale)
 o Récupérer la liste des catégories
 x Visualiser la liste de film (tous, par catégorie, par acteur, par titre, par langue, par mot-clé)
 o Visualiser un film (basé sur son id)
-x Encoder une location (Panier)
+o Encoder une location (Panier)

@@ -83,6 +83,7 @@
     <Build Include="Procedures\getRentalsByCostumerId.sql" />
     <Build Include="Procedures\AddRental.sql" />
     <Build Include="Tables\IdList.sql" />
+    <Build Include="Procedures\GetFilletedMovieList.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MovieRental.Database.publish.xml" />

@@ -8,7 +8,8 @@ namespace DAL.model {
         public int Id { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
-        public int ReleaseYear { get; set; }
+
+        // add for category ? langage ? or just add it/them
 
     }
 }

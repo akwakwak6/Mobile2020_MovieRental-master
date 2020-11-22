@@ -5,7 +5,7 @@ using System.Text;
 namespace DAL.model {
     public class Movie {
 
-        public int Id;
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int ReleaseYear { get; set; }
@@ -16,7 +16,8 @@ namespace DAL.model {
         public decimal ReplacementCost { get; set; }
         public string Rating { get; set; }
 
-
+        public IEnumerable<Actor> Actors { get; set; }
+        public IEnumerable<Category> Category { get; set; }
 
     }
 }

@@ -41,10 +41,10 @@ namespace MoviesWebAPI.controllers {
             return Ok(_service.GetAll(CostumerId));
         }
 
-
         [HttpGet("{Id}")]
         public Rental GetById(int Id) {
-            return _service.Get(Id);
+            int CostumerId = _tokenService.getCustomerId(Request.Headers[HeaderNames.Authorization]);
+            return _service.Get(Id, CostumerId);
         }
 
     }

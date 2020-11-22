@@ -56,9 +56,14 @@ namespace DAL.service {
 
         }
 
-        public Rental Get(int idRental) {
+
+        public Rental Get(int idRental, int idCustomer) {
             Command cmd = new Command("GetRentalByID",true);
             cmd.AddParameter("RentalID", idRental);
+
+            //  => CHECK IF idCustomer CAN SEE THIS RENTAL
+            //cmd.AddParameter("CostumerId", idCustomer);
+
             return _connection.ExecuteReader(cmd, Convert).SingleOrDefault();
         }
 

@@ -22,6 +22,12 @@ namespace DAL.service {
             _connection = connection;
         }
 
+        public IEnumerable<Category> GetCategoryInMovie(int movieId) {
+            Command cmd = new Command("select * from Category AS C JOIN FilmCategory AS FC ON C.CategoryId = FC.CategoryId WHERE FC.FilmId = @Id");
+            cmd.AddParameter("Id", movieId);
+            return _connection.ExecuteReader(cmd, Convert);
+        }
+
         public Category Get(int key) {
             Command cmd = new Command("SELECT * FROM Category WHERE CategoryId = @id");
             cmd.AddParameter("Id", key);
