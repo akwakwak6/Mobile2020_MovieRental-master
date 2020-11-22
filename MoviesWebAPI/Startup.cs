@@ -20,6 +20,11 @@ namespace MoviesWebAPI {
             services.AddSingleton(sp => new Connection("Server = FRANKY; Database = movies; Trusted_Connection = True; "));
             services.AddSingleton<AuthService>();
             services.AddSingleton<TokenService>();
+            services.AddSingleton<MovieService>();
+            services.AddSingleton<ActorService>();
+            services.AddSingleton<CategoryService>();
+            services.AddSingleton<InitialActorService>();
+            services.AddSingleton<RentalService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,9 +39,9 @@ namespace MoviesWebAPI {
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
-                /*endpoints.MapGet("/", async context => {
-                    await context.Response.WriteAsync("Hello World!");
-                });*/
+                endpoints.MapGet("/", async context => {
+                    await context.Response.WriteAsync("Try /api/xxx");
+                });
             });
         }
     }

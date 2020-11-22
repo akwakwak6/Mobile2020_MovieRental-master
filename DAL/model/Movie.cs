@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace DAL.model {
-    class Movie {
+    public class Movie {
 
         public int Id;
         public string Title { get; set; }
@@ -14,7 +14,7 @@ namespace DAL.model {
         public int RentalDuration { get; set; }
         public decimal Length { get; set; }
         public decimal ReplacementCost { get; set; }
-        public decimal Rating { get; set; }
+        public string Rating { get; set; }
 
 
 

@@ -37,6 +37,13 @@ namespace ProductWebAPI.Infrastructure {
             }
         }
 
+        public int getCustomerId(string token) {
+
+            token = token.Replace("Bearer ", "");
+            new JwtSecurityToken(token).Payload.TryGetValue("Id", out object id);
+            return int.Parse((string)id);
+        }
+
         public string GenerateToken(Customer c)
         {
             JwtSecurityToken securityToken = new JwtSecurityToken(

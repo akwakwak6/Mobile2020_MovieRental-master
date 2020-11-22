@@ -78,6 +78,11 @@
     <Build Include="Procedures\MVSP_CheckCustomer.sql" />
     <Build Include="Procedures\MVSP_RegisterCustomer.sql" />
     <Build Include="view\V_Film.sql" />
+    <Build Include="Procedures\GetRentalMovies.sql" />
+    <Build Include="Procedures\GetRentalByID.sql" />
+    <Build Include="Procedures\getRentalsByCostumerId.sql" />
+    <Build Include="Procedures\AddRental.sql" />
+    <Build Include="Tables\IdList.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MovieRental.Database.publish.xml" />
