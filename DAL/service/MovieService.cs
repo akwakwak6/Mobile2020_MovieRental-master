@@ -52,8 +52,9 @@ namespace DAL.service {
             return _connection.ExecuteReader(cmd, Convert).SingleOrDefault();
         }
 
-        public IEnumerable<MovieList> GetAllMovieList() {
-            Command cmd = new Command("SELECT FilmID,Title,RentalPrice FROM V_Film");
+        public IEnumerable<MovieList> GetAllMovieStartedBy(char initial) {
+            Command cmd = new Command("SELECT FilmID,Title,RentalPrice FROM V_Film where Title LIKE @i+'%'");
+            cmd.AddParameter("i", initial);
             return _connection.ExecuteReader(cmd, ConvertList);
         }
 

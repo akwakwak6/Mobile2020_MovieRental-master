@@ -18,15 +18,9 @@ namespace MoviesWebAPI.controllers {
             _service = service;
         }
 
-        [HttpGet]
-        public IActionResult GetAll() {
-            return Ok(_service.GetAll());
-        }
-
-
-        [HttpGet("{Id}")]
-        public Actor GetById(int Id) {
-            return _service.Get(Id);
+        [HttpGet("{initial}")]
+        public IActionResult GetAllStartedBy(char initial) {
+            return Ok(_service.GetAllStartedBy(initial));
         }
 
     }

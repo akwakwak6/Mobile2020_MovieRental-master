@@ -23,7 +23,6 @@ namespace MoviesWebAPI {
             services.AddSingleton<MovieService>();
             services.AddSingleton<ActorService>();
             services.AddSingleton<CategoryService>();
-            services.AddSingleton<InitialActorService>();
             services.AddSingleton<RentalService>();
         }
 

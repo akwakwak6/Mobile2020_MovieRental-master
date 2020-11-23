@@ -30,14 +30,9 @@ namespace DAL.service {
             return _connection.ExecuteReader(cmd, Convert);
         }
 
-        public Actor Get(int key) {
-            Command cmd = new Command("SELECT * FROM Actor WHERE ActorId = @id");
-            cmd.AddParameter("Id", key);
-            return _connection.ExecuteReader(cmd, Convert).SingleOrDefault();
-        }
-
-        public IEnumerable<Actor> GetAll() {
-            Command cmd = new Command("SELECT * FROM Actor");
+        public IEnumerable<Actor> GetAllStartedBy(char initial) {
+            Command cmd = new Command("SELECT * FROM Actor where LastName LIKE @i+'%'");
+            cmd.AddParameter("i", initial);
             return _connection.ExecuteReader(cmd, Convert);
         }
 

@@ -15,17 +15,20 @@ namespace MoviesWebAPI.controllers {
             _movieService = movieService;
         }
 
-        [HttpGet]
-        public IEnumerable<MovieList> GetAllList() {
-            return _movieService.GetAllMovieList();
+        [HttpGet("{Initial}")]
+        public IEnumerable<MovieList> GetAllList(char Initial) {
+            if ((Initial >= 'a' && Initial <= 'z') || (Initial >= 'A' && Initial <= 'Z'))
+                return _movieService.GetAllMovieStartedBy(Initial);
+            else
+                return null;
         }
 
-        [HttpGet("{Id}")]
+        [HttpGet("INFO/{Id}")]
         public Movie GetFilmById(int Id) {
             return _movieService.Get(Id);
         }
 
-        [HttpPost]
+        [HttpPost("INFO/")]
         public IEnumerable<MovieList> GetMovieListFiltered([FromBody] FilterMovie fm) {
             return _movieService.GetMovieListFillted(fm);
         }
