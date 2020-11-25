@@ -14,21 +14,19 @@ namespace MoviesWebAPI.controllers {
 
 
         private readonly RentalService _service;
-        private readonly TokenService _tokenService;
 
 
-        public RentalController(RentalService service,TokenService tokenService) {
+        public RentalController(RentalService service) {
             _service = service;
-            _tokenService = tokenService;
         }
 
         [HttpPost]
         public IActionResult add( IEnumerable<int> movies) {
 
-            int CostumerId = _tokenService.getCustomerId(Request.Headers[HeaderNames.Authorization]);
+            int customerId = (int)ControllerContext.RouteData.Values["CustomerId"];
 
             try {
-                return Ok(_service.Insert(movies, CostumerId));
+                return Ok(_service.Insert(movies, customerId));
             }catch(Exception e) {
 
             }
@@ -37,14 +35,14 @@ namespace MoviesWebAPI.controllers {
 
         [HttpGet]
         public IActionResult GetAll() {
-            int CostumerId = _tokenService.getCustomerId(Request.Headers[HeaderNames.Authorization]);
-            return Ok(_service.GetAll(CostumerId));
+            int customerId = (int)ControllerContext.RouteData.Values["CustomerId"];
+            return Ok(_service.GetAll(customerId));
         }
 
         [HttpGet("{Id}")]
         public Rental GetById(int Id) {
-            int CostumerId = _tokenService.getCustomerId(Request.Headers[HeaderNames.Authorization]);
-            return _service.Get(Id, CostumerId);
+            int customerId = (int)ControllerContext.RouteData.Values["CustomerId"];
+            return _service.Get(Id, customerId);
         }
 
     }
