@@ -1,14 +1,13 @@
 ﻿CREATE PROCEDURE [dbo].[AddRental]
 	@MovieList AS dbo.IdList READONLY,
-	@CostumerId int,
-	@Date date
+	@CostumerId int
 AS
 BEGIN
 	SET NOCOUNT ON;
 	DECLARE @RentalID INT
 	BEGIN TRANSACTION;
 	BEGIN TRY
-		INSERT INTO Rental (RentalDate,CustomerId) VALUES (@Date,@CostumerId)
+		INSERT INTO Rental (CustomerId) VALUES (@CostumerId)
 		SELECT @RentalID = SCOPE_IDENTITY()
 		INSERT INTO RentalDetail (RentalId,FilmId,RentalPrice) SELECT @RentalID,L.Id,(SELECT RentalPrice from Film WHERE FilmId=L.Id)  FROM @MovieList AS L
 		COMMIT TRANSACTION

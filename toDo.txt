@@ -6,6 +6,6 @@ o Une fois au authentifié (gestion par jwt token)
 o Récupérer les initiales des noms des acteurs
 o Récupérer la liste des acteurs (complet et par initiale)
 o Récupérer la liste des catégories
-x Visualiser la liste de film (tous, par catégorie, par acteur, par titre, par langue, par mot-clé)
+o Visualiser la liste de film (tous, par catégorie, par acteur, par titre, par langue, par mot-clé)
 o Visualiser un film (basé sur son id)
 o Encoder une location (Panier)

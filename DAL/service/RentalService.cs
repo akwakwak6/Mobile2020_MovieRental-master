@@ -50,7 +50,6 @@ namespace DAL.service {
             Command cmd = new Command("AddRental", true);
             cmd.AddParameter("MovieList", tvp);
             cmd.AddParameter("CostumerId", idCustomer);
-            cmd.AddParameter("Date", DateTime.Now.ToString("s"));
             int r =  (int) _connection.ExecuteScalar(cmd);
             return r;
 

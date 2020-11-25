@@ -24,6 +24,7 @@ namespace MoviesWebAPI {
             services.AddSingleton<ActorService>();
             services.AddSingleton<CategoryService>();
             services.AddSingleton<RentalService>();
+            services.AddSingleton<LangageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
